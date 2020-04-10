@@ -47,6 +47,7 @@ Bases de datos relacional
 - Usuario
   - Teléfono para validar (unique)
   - Nombre - string
+  - Apellidos - string
   - Password - argon2
   - Dirección
     - Linea 1 - string
@@ -72,6 +73,8 @@ Bases de datos relacional
 - Producto (p.ej. Pan Bimbo Familiar)
   - Categoria - fk - belongsTo
   - Tienda - fk - belongsTo
+  - Nombre - string
+  - Descripción - string
   - Peso fijo - string (numeric/alpha) (p.ej. 200g)
   - Precio unidad - float
   - Disponibilidad - bool
