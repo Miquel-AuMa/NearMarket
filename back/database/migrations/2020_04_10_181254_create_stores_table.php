@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class CreateStoresTable extends Migration
 {
@@ -15,7 +16,16 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('store_type_id')->constrained();
+            $table->string('phone_number')->unique();
             $table->string('name');
+            $table->string('password');
+            $table->string('address_line_1');
+            $table->string('city');
+            $table->string('zip');
+            $table->string('photo')->nullable();
+            $table->boolean('delivery')->default(0);
+            $table->json('schedule')->nullable();
             $table->timestamps();
         });
     }

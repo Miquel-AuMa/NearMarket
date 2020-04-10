@@ -81,7 +81,6 @@ Bases de datos relacional
 - Categoría (p.ej. Pan)
   - Nombre (unique)
   - Descripción - string/text
-  - Imagen - url
 
 - Tipo tienda
   - Nombre (unique) - string
