@@ -10,7 +10,7 @@ services:
             MYSQL_ROOT_PASSWORD: 'superpass'
         volumes:
             - bddata:/var/lib/mysql
-        networks: 
+        networks:
             - internal
 
     web:
@@ -19,9 +19,9 @@ services:
             - ./:/var/www/html
         ports:
             - 8000:80
-        depends_on: 
+        depends_on:
             - db-nearmarket
-        networks: 
+        networks:
             - internal
 volumes:
     bddata:
