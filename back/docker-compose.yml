@@ -1,0 +1,20 @@
+version: '3'
+services:
+    db:
+        build: ./docker/db
+        environment:
+            MYSQL_DATABASE: 'database'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'pass'
+            MYSQL_ROOT_PASSWORD: 'superpass'
+        volumes:
+            - bddata:/var/lib/mysql
+    web:
+        build: ./docker/web
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - 80:80
+volumes:
+    bddata:
+        driver: local
