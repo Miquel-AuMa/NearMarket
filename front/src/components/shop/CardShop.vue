@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'product-home' }" class="card-style">
+  <router-link :to="{ name: 'shop', id: this.shop.id }" class="card-style">
 
   <el-card :body-style="{ padding: '0px' }">
     <img :src="shop.image" class="image">
