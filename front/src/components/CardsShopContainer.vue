@@ -1,7 +1,7 @@
 <template>
   <div class="card-container">
     <el-row :gutter="10" :justify="'center'">
-      <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="1" v-for="shop in shops" :key="shop.id" class="padding-10">
+      <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="shop in shops" :key="shop.id" class="padding-10">
         <CardShop :shop="shop" ></CardShop>
       </el-col>
     </el-row>

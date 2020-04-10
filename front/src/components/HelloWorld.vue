@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import register from './Auth/register/Register'
+import register from './auth/register/Register'
 
 export default {
   name: 'HelloWorld',
