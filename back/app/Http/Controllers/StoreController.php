@@ -3,63 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRequest;
+use App\Http\Resources\StoreResource;
 use App\Store;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return StoreResource::collection(Store::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreRequest $request
-     * @return void
-     */
     public function store(StoreRequest $request)
     {
-        return Store::create($request->validated());
+        return new StoreResource(Store::makeOne($request->validated()));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Store  $store
-     * @return \Illuminate\Http\Response
-     */
     public function show(Store $store)
     {
-        //
+        return new StoreResource($store->load('storeType'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Store  $store
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Store $store)
+    public function update(StoreRequest $request, Store $store)
     {
-        //
+        $store = $store->updateMe($request->validated());
+
+        return new StoreResource($store->load('storeType'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Store  $store
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Store $store)
     {
-        //
+        return $store->delete();
     }
 }
