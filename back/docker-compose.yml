@@ -1,6 +1,7 @@
 version: '3'
 services:
-    db:
+
+    db-nearmarket:
         build: ./docker/db
         environment:
             MYSQL_DATABASE: 'database'
@@ -9,12 +10,25 @@ services:
             MYSQL_ROOT_PASSWORD: 'superpass'
         volumes:
             - bddata:/var/lib/mysql
+        networks: 
+            - internal
+
     web:
         build: ./docker/web
         volumes:
             - ./:/var/www/html
         ports:
-            - 80:80
+            - 8000:80
+        depends_on: 
+            - db-nearmarket
+        networks: 
+            - internal
 volumes:
     bddata:
         driver: local
+
+networks:
+    public:
+        external:
+            name: public
+    internal:
