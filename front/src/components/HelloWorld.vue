@@ -31,12 +31,16 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <login></login>
   </div>
 </template>
 
 <script>
+import login from './Auth/Login'
+
 export default {
   name: 'HelloWorld',
+  components: {login},
   props: {
     msg: String
   }
