@@ -1,21 +1,10 @@
 <template>
-  <div>
+  <div class="navbar">
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">Processing Center</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">Workspace</template>
-        <el-menu-item index="2-1">item one</el-menu-item>
-        <el-menu-item index="2-2">item two</el-menu-item>
-        <el-menu-item index="2-3">item three</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">item four</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
-          <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3">item three</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3" disabled>Info</el-menu-item>
-      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
+      <el-menu-item index="home">Near Market</el-menu-item>
+      <el-menu-item index="cart" class="right-float"><span class="el-icon-shopping-cart-2"></span></el-menu-item>
+      <el-menu-item index="login" class="right-float">Entrar</el-menu-item>
+      <el-menu-item index="register" class="right-float">Registro</el-menu-item>
     </el-menu>
     <div class="line"></div>
   </div>
@@ -30,9 +19,18 @@ export default {
     }
   },
   methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+    handleSelect (key) {
+      this.$router.push({ name: key })
     }
   }
 }
 </script>
+<style>
+  .navbar{
+    position: sticky;
+    top:0;
+  }
+  .right-float{
+    float:right!important;
+  }
+</style>
