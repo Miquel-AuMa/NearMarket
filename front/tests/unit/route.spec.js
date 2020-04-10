@@ -48,7 +48,7 @@ describe('Private route helper', () => {
 
     const keys = Object.keys(example)
 
-    expect(keys).toHaveLength(5)
+    expect(keys).toHaveLength(4)
     expect(keys).toContain('path')
     expect(keys).toContain('name')
     expect(keys).toContain('component')
@@ -59,7 +59,7 @@ describe('Private route helper', () => {
     expect(Object.keys(example.meta)).toContain('someMetaValue')
 
     expect(example.meta.requireAuth).toBeTruthy()
-    expect(example.meta.requireAuth).toBe(42)
+    expect(example.meta.someMetaValue).toBe(42)
     expect(example.path).toBe('/home')
     expect(example.name).toBe('Home')
     expect(typeof example.component).toBe('function')

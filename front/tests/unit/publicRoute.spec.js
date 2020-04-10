@@ -1,7 +1,7 @@
 import { publicRoute as route } from '@/router/helpers'
 
-describe('Private route helper', () => {
-  it('Basic private route', () => {
+describe('Public route helper', () => {
+  it('Basic public route', () => {
     const example = route({ path: '/home', name: 'Home' }, 'Home')
 
     const keys = Object.keys(example)
@@ -21,7 +21,7 @@ describe('Private route helper', () => {
     expect(typeof example.component).toBe('function')
   })
 
-  it('Custom private route route', () => {
+  it('Custom public route route', () => {
     const example = route({ path: '/home', name: 'Home', title: 'some title' }, 'Home')
 
     const keys = Object.keys(example)
@@ -43,12 +43,12 @@ describe('Private route helper', () => {
     expect(typeof example.component).toBe('function')
   })
 
-  it('Custom meta values on private route route', () => {
+  it('Custom meta values on public route route', () => {
     const example = route({ path: '/home', name: 'Home' }, 'Home', { someMetaValue: 42 })
 
     const keys = Object.keys(example)
 
-    expect(keys).toHaveLength(5)
+    expect(keys).toHaveLength(4)
     expect(keys).toContain('path')
     expect(keys).toContain('name')
     expect(keys).toContain('component')
@@ -59,7 +59,7 @@ describe('Private route helper', () => {
     expect(Object.keys(example.meta)).toContain('someMetaValue')
 
     expect(example.meta.requireAuth).toBeFalsy()
-    expect(example.meta.requireAuth).toBe(42)
+    expect(example.meta.someMetaValue).toBe(42)
     expect(example.path).toBe('/home')
     expect(example.name).toBe('Home')
     expect(typeof example.component).toBe('function')
