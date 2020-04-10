@@ -1,3 +1,5 @@
+import isBefore from 'date-fns/isBefore'
+
 /**
  * Partial aplication of a route config generator
  *
@@ -50,11 +52,30 @@ export const publicRoute = routify(false)
 
 /**
  * WIP - session guardian
- * @param from
  * @param to
+ * @param from
  * @param next
  */
-export function guardian (_, to, next) {
-  const { requireAuth } = to.meta
-  if (!requireAuth) return next()
+export function guardian (to, _, next) {
+  if (!to.meta.requiresAuth) return next()
+  if (!checkLocalAuth()) return next({ path: '/login' })
+  return next()
+}
+
+/**
+ * Helper that resume the propper session checking
+ */
+export function checkLocalAuth () {
+  // if (process.env.DEV) return true
+
+  const authToken = localStorage.getItem('access_token')
+  if (!authToken) {
+    localStorage.clear()
+    return false
+  }
+
+  const expireSession = new Date((localStorage.getItem('expiration_at')))
+  if (!expireSession) return false
+
+  return isBefore(Date.now(), expireSession)
 }
