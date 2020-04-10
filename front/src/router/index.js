@@ -5,8 +5,9 @@ import { publicRoute } from './helpers'
 Vue.use(VueRouter)
 
 const routes = [
-  publicRoute({ path: '/', name: 'Home' }, 'Home'),
-  publicRoute({ path: '/about', name: 'About' }, 'About')
+  publicRoute({ path: '/', name: 'home' }, 'Home'),
+  publicRoute({ path: '/about', name: 'about' }, 'About'),
+  publicRoute({ path: '/shop', name: 'shop' }, 'Shop')
 ]
 
 const router = new VueRouter({

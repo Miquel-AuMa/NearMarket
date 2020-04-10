@@ -7,6 +7,9 @@
       <span>{{product.name}}</span>
       <div class="bottom clearfix">
         <address class="time">{{product.address}}</address>
+        <p class="description-card">
+          {{product.description}}
+        </p>
         <div class="separator"></div>
         <div class="padding-10">
           <el-tag>{{product.category.name}}</el-tag>
@@ -30,6 +33,11 @@ export default {
 </script>
 
 <style scoped>
+  .description-card{
+    font-size: 13px;
+    color: #999;
+    text-align: justify;
+  }
   .card-style {
     text-decoration: none;
   }
