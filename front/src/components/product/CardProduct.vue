@@ -1,15 +1,15 @@
 <template>
-  <router-link :to="{ name: 'shop-home' }" class="card-style">
+  <router-link :to="{ name: 'product-home' }" class="card-style">
 
   <el-card :body-style="{ padding: '0px' }">
-    <img :src="shop.image" class="image">
+    <img :src="product.image" class="image">
     <div style="padding: 14px;">
-      <span>{{shop.name}}</span>
+      <span>{{product.name}}</span>
       <div class="bottom clearfix">
-        <address class="time">{{shop.address}}</address>
+        <address class="time">{{product.address}}</address>
         <div class="separator"></div>
         <div class="padding-10">
-          <el-tag>{{shop.category.name}}</el-tag>
+          <el-tag>{{product.category.name}}</el-tag>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
 
 export default {
   props: {
-    shop: {
+    product: {
       type: Object
     }
   }
@@ -55,6 +55,8 @@ export default {
   .image {
     width: 100%;
     display: block;
+    max-height: 150px;
+    object-fit: cover;
   }
 
   .clearfix:before,
