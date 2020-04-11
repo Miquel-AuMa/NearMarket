@@ -1,44 +1,48 @@
 <template>
   <div>
-    <el-select v-model="selectRegister" placeholder="Select" class="spadding">
-      <el-option
-        v-for="item in optionsRegister"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value">
-      </el-option>
-    </el-select>
-    <error v-if="selectRegister==='none'"/>
-    <trade v-if="selectRegister==='trade'"/>
-    <user v-if="selectRegister==='user'"/>
+    <user :validate="false" @isShop="cambio" ref="user" />
+    <trade v-if="isShop" :validate="false" ref="trade" />
+    <el-form>
+      <el-form-item>
+      <el-button type="primary" @click="submitForm">Enviar</el-button>
+      <el-button @click="resetForm">Borrar todo</el-button>
+    </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
-import error from './OptionNotSelect'
-import trade from './Trade'
-import user from './User'
+import trade from '../../shop/FormShop'
+import user from '../../user/FormUser'
 
 export default {
   name: 'register',
-  components: { error, trade, user },
+  components: { trade, user },
   data () {
     return {
-      selectRegister: 'none',
-      optionsRegister: [
-        {
-          value: 'none',
-          label: 'Eliga ocion'
-        },
-        {
-          value: 'user',
-          label: 'Usuario'
-        },
-        {
-          value: 'trade',
-          label: 'Comercio'
-        }
-      ]
+      isShop: false
+    }
+  },
+  methods: {
+    cambio (val) {
+      this.isShop = val
+    },
+    resetForm () {
+      this.$refs.user.resetForm('ruleForm')
+      if (this.isShop) {
+        this.$refs.trade.resetForm('ruleForm')
+      }
+    },
+    submitForm () {
+      const userValidate = this.$refs.user.validateForm('ruleForm')
+      let tradeValidate = true
+      if (this.isShop) {
+        tradeValidate = this.$refs.trade.validateForm('ruleForm')
+      }
+      if (!userValidate || !tradeValidate) {
+        return false
+      }
+      console.log('enviado')
     }
   }
 }

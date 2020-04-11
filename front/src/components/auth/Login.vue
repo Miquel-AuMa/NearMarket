@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
       <el-form-item label="Nombre" prop="name">
         <el-input type="text" v-model="ruleForm.name" auto-complete="off" />
@@ -7,11 +7,31 @@
       <el-form-item label="Contraseña" prop="pass">
         <el-input type="password" v-model="ruleForm.pass" autocomplete="off" />
       </el-form-item>
+      <el-form-item style="text-align: right">
+        <span class="lostPass" @click="dialogVisible = true">He perdido la contraseña</span>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">Enviar</el-button>
-        <el-button @click="resetForm('ruleForm')">Reset</el-button>
+        <el-button @click="resetForm('ruleForm')">Borrar todo</el-button>
       </el-form-item>
     </el-form>
+    <el-dialog
+      title="Recuperar contraseña"
+      :close-on-click-modal="false"
+      :close-on-press-escape="false"
+      :show-close="false"
+      :visible.sync="dialogVisible">
+      <span>Ingrese su telefono</span>
+      <el-form>
+        <el-form-item label="Telefono">
+          <el-input type="text" v-model="lostPhone" auto-complete="off" />
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">Cancelar</el-button>
+    <el-button type="primary" @click="dialogVisible = false">Confirmar</el-button>
+  </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -37,6 +57,8 @@ export default {
     }
 
     return {
+      lostPhone: '',
+      dialogVisible: false,
       ruleForm: {
         pass: '',
         name: ''
@@ -82,3 +104,13 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .lostPass {
+    font-size: 12px;
+    color: #6292e8;
+    cursor: pointer;
+  }
+  .lostPass:hover {
+    color: #01018e;
+  }
+</style>
