@@ -1,4 +1,4 @@
-name: backend
+name: frontend
 on: [push]
 jobs:
   build:
