@@ -55,7 +55,7 @@
       </el-radio-group>
     </el-form-item>
     <PhotoUpload
-      :extra-data="product"
+      :post-data="product"
       :upload-url="urlUpload"
       @success="handlePhotoUploadSuccess"
     />
