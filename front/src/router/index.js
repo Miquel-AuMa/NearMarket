@@ -23,10 +23,15 @@ const routes = [
         path: '/shop',
         name: 'shop',
         component: () => import('../views/Shop.vue')
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('../components/auth/Login')
       }
     ].map(publicRoute)
-  },
-  {
+  }
+  /* {
     path: '/login',
     component: () => import('../layouts/LoginLayout.vue'),
     children: [
@@ -36,7 +41,7 @@ const routes = [
         component: () => ('../views/login/Login.vue')
       }
     ].map(publicRoute)
-  }
+  } */
 ]
 
 const router = new VueRouter({

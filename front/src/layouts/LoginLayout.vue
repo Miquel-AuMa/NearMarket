@@ -6,7 +6,7 @@
 
     <el-main>
       <router-view />
-        <!-- <home /> -->
+        <!-- <login /> -->
     </el-main>
   </el-container>
 </template>
@@ -19,3 +19,4 @@ export default {
 
   components: { NavBar }
 }
+</script>
