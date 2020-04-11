@@ -15,6 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->boolean('delivery')->default(0);
+            $table->enum('state', ["accepted", "declined", "received"]);
+            $table->timestamp('request_date');
+            $table->timestamp('pickup_date');
+            $table->string('annotations')->nullable();
             $table->timestamps();
         });
     }
