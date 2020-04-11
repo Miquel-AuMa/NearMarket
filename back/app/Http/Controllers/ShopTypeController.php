@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\StoreType;
+use App\ShopType;
 use Illuminate\Http\Request;
 
-class StoreTypeController extends Controller
+class ShopTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class StoreTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\StoreType  $storeType
+     * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function show(StoreType $storeType)
+    public function show(ShopType $shopType)
     {
         //
     }
@@ -43,10 +43,10 @@ class StoreTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\StoreType  $storeType
+     * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StoreType $storeType)
+    public function update(Request $request, ShopType $shopType)
     {
         //
     }
@@ -54,10 +54,10 @@ class StoreTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\StoreType  $storeType
+     * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StoreType $storeType)
+    public function destroy(ShopType $shopType)
     {
         //
     }
