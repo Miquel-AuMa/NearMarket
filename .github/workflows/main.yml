@@ -12,4 +12,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: COMPOSE_INTERACTIVE_NO_CLI=1 cd /root/NearMarket/back && bash deploy.sh
+          script: cd /root/NearMarket/back && bash deploy.sh
