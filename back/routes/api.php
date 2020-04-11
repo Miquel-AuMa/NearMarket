@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ShopTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,12 @@ Route::get('/orders/{order}', [OrderController::class, 'show']);
 Route::post('/orders', [OrderController::class, 'order']);
 Route::put('/orders/{order}', [OrderController::class, 'update']);
 Route::delete('/orders/{order}', [OrderController::class, 'destroy']);
+
+Route::get('/shop-types', [ShopTypeController::class, 'index']);
+Route::get('/shop-types/{shopType}', [ShopTypeController::class, 'show']);
+Route::post('/shop-types', [ShopTypeController::class, 'store']);
+Route::put('/shop-types/{shopType}', [ShopTypeController::class, 'update']);
+Route::delete('/shop-types/{shopType}', [ShopTypeController::class, 'destroy']);
 
 Route::get('/shops', [ShopController::class, 'index']);
 Route::get('/shops/{shop}', [ShopController::class, 'show']);
