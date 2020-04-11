@@ -4,7 +4,6 @@
 
     <div class="p-md">
       <span>{{ element.name }}</span>
-      <span>{{type}}</span>
       <div class="bottom clearfix">
         <address class="time">{{ element.address || '' }}</address>
 
