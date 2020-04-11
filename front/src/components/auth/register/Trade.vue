@@ -57,7 +57,7 @@
         </el-form-item>
       </el-col>
     </el-row>
-    <el-form-item>
+    <el-form-item v-if="validate">
       <el-button type="primary" @click="submitForm('ruleForm')">Enviar</el-button>
       <el-button @click="resetForm('ruleForm')">Borrar todo</el-button>
     </el-form-item>
@@ -68,6 +68,13 @@
 <script>
 export default {
   name: 'Trade',
+  props: {
+    validate: {
+      required: false,
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     const valueEmpty = (rule, value, callback) => {
       if (!value) {
@@ -155,6 +162,11 @@ export default {
     }
   },
   methods: {
+    validateForm (formName) {
+      return this.$refs[formName].validate((valid) => {
+        return valid
+      })
+    },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -177,4 +189,3 @@ export default {
   width: 100%;
 }
 </style>
-

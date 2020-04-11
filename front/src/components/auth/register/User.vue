@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
+  <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="180px" class="demo-ruleForm">
     <el-form-item label="Nombre" prop="name">
       <el-input type="text" v-model="ruleForm.name" autocomplete="off" />
     </el-form-item>
@@ -26,6 +26,9 @@
       <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
     </el-form-item>
     <el-form-item>
+      <el-checkbox v-model="isShop" >¿Tiene Comercio?</el-checkbox>
+    </el-form-item>
+    <el-form-item v-if="validate">
       <el-button type="primary" @click="submitForm('ruleForm')">Enviar</el-button>
       <el-button @click="resetForm('ruleForm')">Borrar todo</el-button>
     </el-form-item>
@@ -36,6 +39,13 @@
 <script>
 export default {
   name: 'User',
+  props: {
+    validate: {
+      required: false,
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     const valueEmpty = (rule, value, callback) => {
       if (!value) {
@@ -64,6 +74,7 @@ export default {
       }
     }
     return {
+      isShop: false,
       ruleForm: {
         name: '',
         surname: '',
@@ -102,7 +113,17 @@ export default {
       }
     }
   },
+  watch: {
+    isShop: function (val) {
+      this.$emit('isShop', val)
+    }
+  },
   methods: {
+    validateForm (formName) {
+      return this.$refs[formName].validate((valid) => {
+        return valid
+      })
+    },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -119,4 +140,3 @@ export default {
   }
 }
 </script>
-

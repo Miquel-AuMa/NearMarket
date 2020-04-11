@@ -28,6 +28,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () => import('../components/auth/Login')
+      },
+      {
+        path: '/register',
+        name: 'register',
+        component: () => import('../components/auth/register/Register')
       }
     ].map(publicRoute)
   }
