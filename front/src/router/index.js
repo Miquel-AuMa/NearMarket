@@ -7,20 +7,37 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('../views/Home.vue')
+      },
+      {
+        path: '/about',
+        name: 'about',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: '/shop',
+        name: 'shop',
+        component: () => import('../views/Shop.vue')
+      }
+    ].map(publicRoute)
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/About.vue')
-  },
-  {
-    path: '/shop',
-    name: 'shop',
-    component: () => import('../views/Shop.vue')
+    path: '/login',
+    component: () => import('../layouts/LoginLayout.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'Login',
+        component: () => ('../views/login/Login.vue')
+      }
+    ].map(publicRoute)
   }
-].map(publicRoute)
+]
 
 const router = new VueRouter({
   mode: 'history',
