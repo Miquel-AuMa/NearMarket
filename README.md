@@ -88,7 +88,6 @@ Bases de datos relacional
 - Tipo tienda
   - Nombre (unique) - string
   - Descripción - text
-  - Categorias disponibles?
 
 - Pedido
   - Usuario - fk
