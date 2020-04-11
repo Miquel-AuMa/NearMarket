@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Shop extends Model
 {
     protected $casts = [
         'delivery' => 'boolean',
@@ -13,31 +13,31 @@ class Store extends Model
 
     public static function makeOne(array $data)
     {
-        $store = new Store();
-        $store->storeType()->associate(StoreType::find($data['store_type_id']));
-        $store->phone_number = $data['phone_number'];
-        $store->name = $data['name'];
-        $store->password = bcrypt($data['password']);
-        $store->address_line_1 = $data['address_line_1'];
-        $store->city = $data['city'];
-        $store->zip = $data['zip'];
+        $shop = new Shop();
+        $shop->shopType()->associate(ShopType::find($data['shop_type_id']));
+        $shop->phone_number = $data['phone_number'];
+        $shop->name = $data['name'];
+        $shop->password = bcrypt($data['password']);
+        $shop->address_line_1 = $data['address_line_1'];
+        $shop->city = $data['city'];
+        $shop->zip = $data['zip'];
 
-        $store->save();
+        $shop->save();
 
-        $store->load('storeType');
+        $shop->load('shopType');
 
-        return $store;
+        return $shop;
     }
 
-    public function storeType()
+    public function shopType()
     {
-        return $this->belongsTo(StoreType::class);
+        return $this->belongsTo(ShopType::class);
     }
 
     public function updateMe(array $data)
     {
-        if (isset($data['store_type_id'])) {
-            $this->storeType()->associate(StoreType::find($data['store_type_id']));
+        if (isset($data['shop_type_id'])) {
+            $this->shopType()->associate(ShopType::find($data['shop_type_id']));
         }
 
         $this->phone_number = $data['phone_number'] ?? $this->phone_number;
@@ -51,7 +51,7 @@ class Store extends Model
 
         $this->save();
 
-        $this->load('storeType');
+        $this->load('shopType');
 
         return $this;
     }

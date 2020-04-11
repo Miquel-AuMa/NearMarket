@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Store;
-use App\StoreType;
+use App\Shop;
+use App\ShopType;
 use Faker\Generator as Faker;
 
-$factory->define(Store::class, function (Faker $faker) {
+$factory->define(Shop::class, function (Faker $faker) {
     return [
-        'store_type_id' => factory(StoreType::class),
+        'shop_type_id' => factory(ShopType::class),
         'phone_number' => $faker->unique()->phoneNumber,
         'name' => $faker->word,
         'password' => bcrypt('secret'),

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreRequest extends FormRequest
+class ShopRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class StoreRequest extends FormRequest
     {
         if ($this->method() == 'PUT') {
             return [
-                'store_type_id' => 'exists:store_types,id',
-                'phone_number' => ['string', Rule::unique('stores', 'phone_number')->ignore(request()->route('store'))],
+                'shop_type_id' => 'exists:shop_types,id',
+                'phone_number' => ['string', Rule::unique('shops', 'phone_number')->ignore(request()->route('shop'))],
                 'name' => 'string',
                 'password' => 'string|confirmed',
                 'address_line_1' => 'string',
@@ -37,8 +37,8 @@ class StoreRequest extends FormRequest
         }
 
         return [
-            'store_type_id' => 'required|exists:store_types,id',
-            'phone_number' => 'required|string|unique:stores,phone_number',
+            'shop_type_id' => 'required|exists:shop_types,id',
+            'phone_number' => 'required|string|unique:shops,phone_number',
             'name' => 'required|string',
             'password' => 'required|string|confirmed',
             'address_line_1' => 'required|string',
