@@ -9,7 +9,7 @@
         <el-col :xs="{ span: 24 }" class="cart-item-name">
           {{ item.product.name }} {{ item.product.id }} ({{item.amount}})
         </el-col>
-        <el-col :xs="{ span: 8 }">
+        <el-col :xs="{ span: 8 }" :sm="{ span: 8}">
           <el-button
             type="secondary"
             plain
@@ -18,7 +18,7 @@
             @click="changeCartItemAmount(item, -1)"
           />
         </el-col>
-        <el-col :xs="{ span: 8 }">
+        <el-col :xs="{ span: 8 }" :sm="{ span: 8}">
           <el-button
             type="secondary"
             plain
@@ -27,7 +27,7 @@
             @click="changeCartItemAmount(item, 1)"
           />
         </el-col>
-        <el-col :xs="{ span: 8 }">
+        <el-col :xs="{ span: 8 }" :sm="{ span: 8}">
           <el-button
             type="danger"
             size="small"
