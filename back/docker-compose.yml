@@ -1,34 +1,35 @@
 version: '3'
 services:
+  php:
+    image: nearmarket-php
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./:/var/www/web
 
-    db-nearmarket:
-        build: ./docker/db
-        environment:
-            MYSQL_DATABASE: 'database'
-            MYSQL_USER: 'user'
-            MYSQL_PASSWORD: 'pass'
-            MYSQL_ROOT_PASSWORD: 'superpass'
-        volumes:
-            - bddata:/var/lib/mysql
-        networks:
-            - internal
+  web:
+    image: nginx:latest
+    volumes:
+      - ./:/var/www/web
+      - ./docker/web/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./storage/logs/nginx:/var/log/nginx
+    ports:
+      - 8000:80
+    depends_on:
+      - php
 
-    web:
-        build: ./docker/web
-        volumes:
-            - ./:/var/www/html
-        ports:
-            - 8000:80
-        depends_on:
-            - db-nearmarket
-        networks:
-            - internal
+  db-nearmarket:
+    build: ./docker/db
+    environment:
+      MYSQL_DATABASE: 'database'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'pass'
+      MYSQL_ROOT_PASSWORD: 'superpass'
+    volumes:
+      - bddata:/var/lib/mysql
+
 volumes:
-    bddata:
-        driver: local
+  bddata:
+    driver: local
 
-networks:
-    public:
-        external:
-            name: public
-    internal:
