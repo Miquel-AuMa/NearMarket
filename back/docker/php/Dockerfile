@@ -35,7 +35,6 @@ RUN yum-config-manager --enable extras && \
            php74-php-pdo \
            nano
 
-
 RUN mkdir -p /var/log/php-fpm
 RUN ln -s /opt/remi/php74/root/sbin/php-fpm /usr/sbin/php-fpm
 RUN ln -s /usr/bin/php74 /usr/bin/php
@@ -45,6 +44,11 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=. --filename=composer \
     && mv composer /usr/local/bin/
 
-COPY docker/php/www.conf /etc/opt/remi/php74/php-fpm.d/www.conf
+RUN sed -e 's/127.0.0.1:9000/9000/' \
+        -e '/allowed_clients/d' \
+        -e '/catch_workers_output/s/^;//' \
+        -e '/error_log/d' \
+        -i /etc/opt/remi/php74/php-fpm.d/www.conf
+
 CMD ["php-fpm", "-F"]
 
