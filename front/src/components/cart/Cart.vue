@@ -38,6 +38,13 @@
       </el-row>
     </div>
     <div class="total-amount">Total: {{ totalAmount }} €</div>
+    <el-button
+      type="primary"
+      @click="submitOrder"
+      v-if="cart.cartItems.length > 0"
+    >
+      Finalizar pedido
+    </el-button>
   </div>
 </template>
 
@@ -75,6 +82,9 @@ export default {
     }
   },
   methods: {
+    submitOrder () {
+      console.log('Submit pedido')
+    },
     changeCartItemAmount (item, amount) {
       if (item.amount + amount < 1) {
         if (!confirm('¿Eliminar ' + item.product.name + ' del carrito?')) {
@@ -120,5 +130,7 @@ export default {
     text-align: right;
     font-weight: bold;
     font-size: 1.5rem;
+    border-bottom: 1px solid #555;
+    margin: 10px 0;
   }
 </style>
