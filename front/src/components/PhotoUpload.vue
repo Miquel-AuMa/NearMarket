@@ -2,7 +2,7 @@
   <el-upload
     ref="upload"
     :action="uploadUrl"
-    :auto-upload="false"
+    :auto-upload="true"
     :show-file-list="false"
     :on-change="handlePreview"
     :on-success="handleSuccess"
