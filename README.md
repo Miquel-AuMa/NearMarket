@@ -49,6 +49,8 @@ Bases de datos relacional
   - Nombre - string
   - Apellidos - string
   - Password - argon2
+  - Tipo - usuario/tienda - string
+  - Tienda - optional - fk
   - Dirección
     - Linea 1 - string
     - Localidad - string
@@ -57,7 +59,6 @@ Bases de datos relacional
 - Tienda
   - Tipo Tienda - fk
   - Teléfono - string (unique)
-  - Password - argon2
   - Dirección
     - Linea 1 - string
     - Localidad - string
