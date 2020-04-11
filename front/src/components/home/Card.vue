@@ -38,7 +38,8 @@ export default {
   },
   methods: {
     addToCart () {
-      this.$store.dispatch('carts/addCartItem', { shop: this.element.shop, product: this.element, amount: 1 })
+      const shopId = parseInt(this.$route.params.id)
+      this.$store.dispatch('carts/addCartItem', { shop: shopId, product: this.element, amount: 1 })
     }
   }
 }
