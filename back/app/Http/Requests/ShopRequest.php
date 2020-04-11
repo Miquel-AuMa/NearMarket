@@ -33,6 +33,8 @@ class ShopRequest extends FormRequest
                 'address_line_1' => 'string',
                 'city' => 'string',
                 'zip' => 'string',
+                'delivery' => 'boolean',
+                'schedule' => 'array',
             ];
         }
 
@@ -44,6 +46,8 @@ class ShopRequest extends FormRequest
             'address_line_1' => 'required|string',
             'city' => 'required|string',
             'zip' => 'required|string',
+            'delivery' => 'required|boolean',
+            'schedule' => 'required|array',
         ];
     }
 }
