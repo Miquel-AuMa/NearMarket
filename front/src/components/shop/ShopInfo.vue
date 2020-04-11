@@ -29,21 +29,7 @@ export default {
   name: 'ShopInfo',
   props: {
     shop: {
-      type: Object,
-      default: () => {
-        return {
-          id: 1,
-          name: 'Tienda Manolo',
-          address: 'Calle Falsa 123',
-          schedule: '9:00 a 18:00 de L-S',
-          description: 'La tienda de manolo de toda la vida del seño, que tiene de todo lo que necesitas, bueno, bonito y barato',
-          image: 'https://images.unsplash.com/photo-1546237769-6f84ec1a512a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
-          category: {
-            name: 'Category 1',
-            id: 1
-          }
-        }
-      }
+      type: Object
     }
   }
 }

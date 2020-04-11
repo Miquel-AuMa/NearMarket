@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <SearchBar :showButtons="showButtons" :default="type"/>
-    <ShopInfo/>
+    <ShopInfo :shop="shop"/>
     <CardsContainer :default="type"/>
   </div>
 </template>
@@ -11,20 +11,17 @@
 import CardsContainer from '@/components/home/CardsContainer.vue'
 import SearchBar from '@/components/home/SearchBar.vue'
 import ShopInfo from '@/components/shop/ShopInfo.vue'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
-  props: {
-    id: {
-      type: String,
-      required: true
-    }
-  },
   data () {
     return {
       showButtons: false,
       type: 'products'
     }
+  },
+  computed: {
+    ...mapGetters('products', ['shop'])
   },
   components: {
     CardsContainer,

@@ -24,20 +24,20 @@ const routes = [
         parameters: true,
         name: 'shop',
         component: () => import('../views/Shop.vue')
+      },
+      {
+        path: '/cart/:shopId',
+        parameters: true,
+        name: 'cart',
+        component: () => import('../views/CartView.vue')
       }
     ].map(publicRoute)
   },
-  {
+  publicRoute({
     path: '/login',
-    component: () => import('../layouts/LoginLayout.vue'),
-    children: [
-      {
-        path: '/',
-        name: 'login',
-        component: () => ('../views/login/Login.vue')
-      }
-    ].map(publicRoute)
-  }
+    name: 'login',
+    component: () => import('../views/login/Login.vue')
+  })
 ]
 
 const router = new VueRouter({

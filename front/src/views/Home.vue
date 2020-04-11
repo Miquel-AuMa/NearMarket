@@ -21,6 +21,9 @@ export default {
       showButtons: false,
       type: 'places'
     }
+  },
+  mounted () {
+    this.$store.dispatch('products/fetchShops')
   }
 }
 </script>

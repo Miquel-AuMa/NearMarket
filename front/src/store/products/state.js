@@ -48,7 +48,7 @@ export default {
     }
   ],
 
-  places: [
+  shops: [
     {
       id: 1,
       name: 'Tienda Manolo',
