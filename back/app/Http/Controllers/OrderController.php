@@ -13,7 +13,7 @@ class OrderController extends Controller
         return OrderResource::collection(Order::all());
     }
 
-    public function order(OrderRequest $request)
+    public function store(OrderRequest $request)
     {
         return new OrderResource(Order::makeOne($request->validated()));
     }
