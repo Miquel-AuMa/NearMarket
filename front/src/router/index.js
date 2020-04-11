@@ -24,6 +24,12 @@ const routes = [
         parameters: true,
         name: 'shop',
         component: () => import('../views/Shop.vue')
+      },
+      {
+        path: '/cart/:shopId',
+        parameters: true,
+        name: 'cart',
+        component: () => import('../views/CartView.vue')
       }
     ].map(publicRoute)
   },
