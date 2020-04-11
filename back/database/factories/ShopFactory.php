@@ -11,7 +11,6 @@ $factory->define(Shop::class, function (Faker $faker) {
         'shop_type_id' => factory(ShopType::class),
         'phone_number' => $faker->unique()->phoneNumber,
         'name' => $faker->word,
-        'password' => bcrypt('secret'),
         'address_line_1' => $faker->address,
         'city' => $faker->city,
         'zip' => $faker->postcode,

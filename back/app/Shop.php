@@ -23,7 +23,6 @@ class Shop extends Model
         $shop->shopType()->associate(ShopType::find($data['shop_type_id']));
         $shop->phone_number = $data['phone_number'];
         $shop->name = $data['name'];
-        $shop->password = bcrypt($data['password']);
         $shop->address_line_1 = $data['address_line_1'];
         $shop->city = $data['city'];
         $shop->zip = $data['zip'];
@@ -46,9 +45,6 @@ class Shop extends Model
 
         $this->phone_number = $data['phone_number'] ?? $this->phone_number;
         $this->name = $data['name'] ?? $this->name;
-        $this->password = isset($data['password'])
-            ? bcrypt($data['password'])
-            : $this->password;
         $this->address_line_1 = $data['address_line_1'] ?? $this->address_line_1;
         $this->city = $data['city'] ?? $this->city;
         $this->zip = $data['zip'] ?? $this->zip;
