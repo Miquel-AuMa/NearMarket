@@ -17,6 +17,10 @@ export function filteredElements ({ products, places, searchText, searchType }, 
   }
 }
 
+export function getSearchType ({ searchType }) {
+  return searchType
+}
+
 export function shuffledElement ({ products, places }) {
   return shuffle([
     ...products,

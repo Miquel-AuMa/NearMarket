@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="609px" height="609px" viewBox="0 0 609 609" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Near market</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#C0A561" offset="0%"></stop>
+            <stop stop-color="#AAF9A9" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="305" cy="305" r="259"></circle>
+        <filter x="-1.4%" y="-1.0%" width="102.7%" height="102.7%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="10" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#AAF9A9" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#C0A561" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-5" cx="304.5" cy="304.5" r="304.5"></circle>
+        <filter x="-0.4%" y="-0.2%" width="100.8%" height="101.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="10" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-7" font-family="Chalkduster" font-size="60" font-weight="normal" letter-spacing="-0.42857135">
+            <tspan x="67.35438" y="305">NEAR MARKET</tspan>
+        </text>
+        <filter x="-0.8%" y="-7.9%" width="103.4%" height="121.1%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="4" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-9" font-family="Chalkduster" font-size="36" font-weight="normal" letter-spacing="-0.25714281">
+            <tspan x="188.188319" y="419">Local Shops</tspan>
+        </text>
+        <filter x="-1.7%" y="-11.1%" width="106.9%" height="148.1%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="4" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Near-Market">
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <circle stroke="url(#linearGradient-1)" stroke-width="10" stroke-linejoin="square" cx="305" cy="305" r="254"></circle>
+            </g>
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                <circle stroke="url(#linearGradient-4)" stroke-width="10" stroke-linejoin="square" cx="304.5" cy="304.5" r="299.5"></circle>
+            </g>
+            <g id="NEAR-MARKET" fill="#000000">
+                <use fill-opacity="1" filter="url(#filter-8)" xlink:href="#text-7"></use>
+                <use fill-rule="evenodd" xlink:href="#text-7"></use>
+                <use fill-opacity="1" xlink:href="#text-7"></use>
+            </g>
+            <g id="Local-Shops" fill="#000000">
+                <use fill-opacity="1" filter="url(#filter-10)" xlink:href="#text-9"></use>
+                <use fill-rule="evenodd" xlink:href="#text-9"></use>
+                <use fill-opacity="1" xlink:href="#text-9"></use>
+            </g>
+        </g>
+    </g>
+</svg>

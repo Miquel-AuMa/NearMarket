@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <nav-bar />
+      <NavBar />
     </el-header>
 
     <el-main>
@@ -19,3 +19,4 @@ export default {
 
   components: { NavBar }
 }
+</script>

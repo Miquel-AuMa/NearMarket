@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="{ name: 'element-home' }" class="card-style">
+  <router-link :to="{ name: this.link }" class="card-style">
     <el-card :body-style="{ padding: '0px' }">
       <img :src="element.image" class="image" />
 
       <div class="p-md">
         <span>{{ element.name }}</span>
-
+        <span>{{type}}</span>
         <div class="bottom clearfix">
           <address class="time">{{ element.address || '' }}</address>
 
@@ -27,6 +27,14 @@ export default {
   props: {
     element: {
       type: Object
+    },
+    type: {
+      type: String
+    }
+  },
+  computed: {
+    link () {
+      return this.searchType === 'shops' ? 'shop' : 'product'
     }
   }
 }
