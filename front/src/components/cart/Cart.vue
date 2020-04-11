@@ -68,7 +68,6 @@ export default {
   },
   mounted () {
     this.cart = this.getCart()
-    this.initializeFakeData()
   },
   computed: {
     ...mapGetters('carts', ['getCarts']),
@@ -101,15 +100,6 @@ export default {
     },
     getCart () {
       return this.getCarts.find(cart => cart.shopId === this.shop) || { shopId: this.shop, cartItems: [] }
-    },
-    initializeFakeData () {
-      if (this.cart.cartItems.length > 0) {
-        return
-      }
-      this.$store.dispatch('carts/addCartItem', { shop: this.shop, product: { id: 1, name: 'Nombre', description: 'Desc', price: 1 }, amount: 1 })
-      this.$store.dispatch('carts/addCartItem', { shop: this.shop, product: { id: 2, name: 'Nombre', description: 'Desc', price: 2 }, amount: 2 })
-      this.$store.dispatch('carts/addCartItem', { shop: this.shop, product: { id: 3, name: 'Nombre', description: 'Desc', price: 3 }, amount: 3 })
-      this.$store.dispatch('carts/addCartItem', { shop: this.shop, product: { id: 4, name: 'Nombre', description: 'Desc', price: 4 }, amount: 4 })
     }
   }
 }
