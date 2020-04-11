@@ -11,6 +11,12 @@ class Shop extends Model
         'schedule' => 'array'
     ];
 
+
+    public function shopType()
+    {
+        return $this->belongsTo(ShopType::class);
+    }
+
     public static function makeOne(array $data)
     {
         $shop = new Shop();
@@ -21,17 +27,14 @@ class Shop extends Model
         $shop->address_line_1 = $data['address_line_1'];
         $shop->city = $data['city'];
         $shop->zip = $data['zip'];
+        $shop->delivery = $data['delivery'] ?? 0;
+        $shop->schedule = $data['schedule'] ?? null;
 
         $shop->save();
 
         $shop->load('shopType');
 
         return $shop;
-    }
-
-    public function shopType()
-    {
-        return $this->belongsTo(ShopType::class);
     }
 
     public function updateMe(array $data)
@@ -48,6 +51,8 @@ class Shop extends Model
         $this->address_line_1 = $data['address_line_1'] ?? $this->address_line_1;
         $this->city = $data['city'] ?? $this->city;
         $this->zip = $data['zip'] ?? $this->zip;
+        $this->delivery = $data['delivery'] ?? $this->delivery;
+        $this->schedule = $data['schedule'] ?? $this->schedule;
 
         $this->save();
 
