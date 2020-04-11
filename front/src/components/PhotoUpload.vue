@@ -37,27 +37,16 @@ export default {
     }
   },
   methods: {
-    submitImageForm () {
-      if (this.files.length === 0) {
-        this.sendPostDataOnly()
-      } else {
-        this.sendPhotoWithExtraPostData()
-      }
-    },
-    sendPostDataOnly () {
-      console.log('Enviar por post ')
-    },
-    sendPhotoWithExtraPostData () {
+    submit () {
       this.$refs.upload.submit()
     },
     handlePreview (file) {
       this.getBase64(file.raw).then(res => {
         this.photoUrl = res
-        this.$emit('preview', file)
       })
     },
-    handleSuccess () {
-      this.$emit('success')
+    handleSuccess (response) {
+      this.$emit('success', response)
     },
     getBase64 (file) {
       return new Promise(function (resolve, reject) {
