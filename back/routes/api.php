@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ShopTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,8 @@ Route::post('/shops', [ShopController::class, 'store']);
 Route::put('/shops/{shop}', [ShopController::class, 'update']);
 Route::delete('/shops/{shop}', [ShopController::class, 'destroy']);
 
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category}', [CategoryController::class, 'show']);
+Route::post('/categories', [CategoryController::class, 'store']);
+Route::put('/categories/{category}', [CategoryController::class, 'update']);
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
