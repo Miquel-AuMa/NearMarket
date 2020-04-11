@@ -1,7 +1,6 @@
 name: backend
 on: [push, pull_request]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -13,4 +12,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd /root/Nearmarket/ && git pull origin master
+          script: cd /root/NearMarket/back && bash deploy.sh
