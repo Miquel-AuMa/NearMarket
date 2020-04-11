@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/stores', [StoreController::class, 'index']);
-Route::get('/stores/{store}', [StoreController::class, 'show']);
-Route::post('/stores', [StoreController::class, 'store']);
-Route::put('/stores/{store}', [StoreController::class, 'update']);
-Route::delete('/stores/{store}', [StoreController::class, 'destroy']);
+Route::get('/shops', [ShopController::class, 'index']);
+Route::get('/shops/{shop}', [ShopController::class, 'show']);
+Route::post('/shops', [ShopController::class, 'store']);
+Route::put('/shops/{shop}', [ShopController::class, 'update']);
+Route::delete('/shops/{shop}', [ShopController::class, 'destroy']);

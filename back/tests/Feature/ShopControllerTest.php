@@ -2,41 +2,41 @@
 
 namespace Tests\Feature;
 
-use App\Store;
-use App\StoreType;
+use App\Shop;
+use App\ShopType;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class StoreTest extends TestCase
+class ShopControllerTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function it_list_stores()
+    public function it_lists_shops()
     {
         $user = factory(User::class)->create();
 
-        $stores = factory(Store::class, 5)->create();
+        $shops = factory(Shop::class, 5)->create();
 
         $response = $this->actingAs($user, 'api')
-            ->get('/api/stores');
+            ->get('/api/shops');
 
         $this->assertCount(5, $response->json('data'));
-        $this->assertEquals($stores->pluck('id'), collect($response->json('data'))->pluck('id'));
+        $this->assertEquals($shops->pluck('id'), collect($response->json('data'))->pluck('id'));
     }
 
     /** @test */
-    public function it_creates_a_store()
+    public function it_creates_a_shop()
     {
         $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user, 'api')
-            ->post('/api/stores', [
-                'store_type_id' => factory(StoreType::class)->create()->id,
+            ->post('/api/shops', [
+                'shop_type_id' => factory(ShopType::class)->create()->id,
                 'phone_number' => '555-555-555',
-                'name' => 'A name store',
+                'name' => 'A name shop',
                 'password' => 'secret',
                 'password_confirmation' => 'secret',
                 'address_line_1' => '13 Rue del Percebe',
@@ -45,53 +45,53 @@ class StoreTest extends TestCase
             ]);
 
         $response->assertStatus(201);
-        $this->assertDatabaseHas('stores', [
-            'name' => 'A name store'
+        $this->assertDatabaseHas('shops', [
+            'name' => 'A name shop'
         ]);
     }
 
     /** @test */
-    public function it_shows_store()
+    public function it_shows_shop()
     {
         $user = factory(User::class)->create();
 
-        $store = factory(Store::class)->create();
+        $shop = factory(Shop::class)->create();
 
         $response = $this->actingAs($user, 'api')
-            ->get('/api/stores/' . $store->id);
+            ->get('/api/shops/' . $shop->id);
 
-        $this->assertEquals($store->name, $response->json('data.name'));
+        $this->assertEquals($shop->name, $response->json('data.name'));
     }
 
     /** @test */
-    public function it_update_store()
+    public function it_updates_shop()
     {
         $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
 
-        $store = factory(Store::class)->create();
-        $storePassword = $store->password;
+        $shop = factory(Shop::class)->create();
+        $shopPassword = $shop->password;
 
         $response = $this->actingAs($user, 'api')
-            ->put('/api/stores/' . $store->id, [
+            ->put('/api/shops/' . $shop->id, [
                 'name' => 'A new name',
             ]);
 
         $this->assertEquals('A new name', $response->json('data.name'));
-        $this->assertEquals('A new name', $store->fresh()->name);
-        $this->assertEquals($storePassword, $store->fresh()->password);
+        $this->assertEquals('A new name', $shop->fresh()->name);
+        $this->assertEquals($shopPassword, $shop->fresh()->password);
     }
 
     /** @test */
-    public function it_delete_store()
+    public function it_deletes_shop()
     {
         $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
 
-        $store = factory(Store::class)->create();
+        $shop = factory(Shop::class)->create();
 
         $response = $this->actingAs($user, 'api')
-            ->delete('/api/stores/' . $store->id);
+            ->delete('/api/shops/' . $shop->id);
 
         $response->assertStatus(200);
     }
