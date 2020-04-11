@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import products from './products'
 import session from './session'
+import carts from './carts'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
 
   modules: {
     products,
+    carts,
     session
   }
 })
