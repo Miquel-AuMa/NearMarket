@@ -3,7 +3,7 @@
     <el-row justify="center">
       <el-input placeholder="Buscador" v-model="searchText" clearable @input="search" />
 
-      <div class="p-sm">
+      <div class="p-sm" v-if="this.showButtons">
         <el-radio v-model="searchType" label="products" @change="search">
           Producto
         </el-radio>
@@ -19,15 +19,22 @@
 
 export default {
   name: 'SearchBar',
-
+  props: {
+    showButtons: {
+      type: Boolean,
+      default: true
+    },
+    default: {
+      type: String
+    }
+  },
   data () {
     return {
       searchText: '',
-      searchType: '',
+      searchType: 'places',
       searchTimeout: {}
     }
   },
-
   methods: {
     search () {
       this.$store.dispatch('products/setSearchBar', {
@@ -38,7 +45,10 @@ export default {
   },
 
   mounted () {
-    this.$store.dispatch('products/blankSearchBar')
+    this.$store.dispatch('products/setSearchBar', { text: '', type: this.searchType })
+  },
+  created () {
+    this.searchType = this.default ? this.default : 'places'
   }
 }
 </script>

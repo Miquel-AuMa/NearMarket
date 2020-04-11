@@ -1,12 +1,11 @@
 <template>
   <el-container>
     <el-header>
-      <nav-bar />
+      <NavBar />
     </el-header>
 
     <el-main>
       <router-view />
-        <!-- <home /> -->
     </el-main>
   </el-container>
 </template>

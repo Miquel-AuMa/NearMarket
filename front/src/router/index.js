@@ -20,53 +20,24 @@ const routes = [
         component: () => import('../views/About.vue')
       },
       {
-        path: '/shop',
+        path: '/shop/:id',
+        parameters: true,
         name: 'shop',
         component: () => import('../views/Shop.vue')
       },
       {
-        path: '/login',
-        name: 'login',
-        component: () => import('../components/auth/Login')
-      },
-      {
-        path: '/register',
-        name: 'register',
-        component: () => import('../components/auth/register/Register')
-      },
-      {
-        path: '/shop/edit',
-        name: 'shopEdit',
-        component: () => import('../components/shop/Edit')
-      },
-      {
-        path: '/shop/delete',
-        name: 'shopDelete',
-        component: () => import('../components/shop/Delete')
-      },
-      {
-        path: '/user/edit',
-        name: 'shopEdit',
-        component: () => import('../components/user/Edit')
-      },
-      {
-        path: '/user/delete',
-        name: 'shopDelete',
-        component: () => import('../components/user/Delete')
+        path: '/cart/:shopId',
+        parameters: true,
+        name: 'cart',
+        component: () => import('../views/CartView.vue')
       }
     ].map(publicRoute)
-  }
-  /* {
+  },
+  publicRoute({
     path: '/login',
-    component: () => import('../layouts/LoginLayout.vue'),
-    children: [
-      {
-        path: '/',
-        name: 'Login',
-        component: () => ('../views/login/Login.vue')
-      }
-    ].map(publicRoute)
-  } */
+    name: 'login',
+    component: () => import('../views/login/Login.vue')
+  })
 ]
 
 const router = new VueRouter({
