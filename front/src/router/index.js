@@ -43,6 +43,16 @@ const routes = [
         path: '/shop/delete',
         name: 'shopDelete',
         component: () => import('../components/shop/Delete')
+      },
+      {
+        path: '/user/edit',
+        name: 'shopEdit',
+        component: () => import('../components/user/Edit')
+      },
+      {
+        path: '/user/delete',
+        name: 'shopDelete',
+        component: () => import('../components/user/Delete')
       }
     ].map(publicRoute)
   }
