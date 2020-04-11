@@ -3,7 +3,7 @@
     <el-card :body-style="{ padding: '0px' }">
       <img :src="element.image" class="image" />
 
-      <div style="padding: 14px;">
+      <div class="p-md">
         <span>{{ element.name }}</span>
 
         <div class="bottom clearfix">
@@ -13,7 +13,7 @@
 
           <div class="separator"></div>
 
-          <div class="padding-10">
+          <div class="p-sm">
             <el-tag>{{ element.category.name }}</el-tag>
           </div>
         </div>
@@ -58,10 +58,10 @@ export default {
     line-height: 12px;
   }
 
-  .button {
+  /* .button {
     padding: 0;
-    /* float: right; */
-  }
+    float: right;
+  } */
 
   .image {
     width: 100%;
@@ -78,8 +78,4 @@ export default {
   .clearfix:after {
     clear: both
   } */
-
-  .padding-sm {
-    padding: .7rem;
-  }
 </style>

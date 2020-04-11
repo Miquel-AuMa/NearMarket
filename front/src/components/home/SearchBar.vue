@@ -3,7 +3,7 @@
     <el-row justify="center">
       <el-input placeholder="Buscador" v-model="searchText" clearable @input="search" />
 
-      <div class="padding-10">
+      <div class="p-sm">
         <el-radio v-model="searchType" label="products" @change="search">
           Producto
         </el-radio>
@@ -47,9 +47,5 @@ export default {
   .searchbar {
     width: 80%;
     margin: 0 auto;
-  }
-
-  .padding-10{
-    padding: 1rem;
   }
 </style>
