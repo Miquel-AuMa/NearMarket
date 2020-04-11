@@ -35,6 +35,7 @@ class ShopRequest extends FormRequest
                 'zip' => 'string',
                 'delivery' => 'boolean',
                 'schedule' => 'array',
+                'photo' => 'string',
             ];
         }
 
@@ -48,6 +49,7 @@ class ShopRequest extends FormRequest
             'zip' => 'required|string',
             'delivery' => 'required|boolean',
             'schedule' => 'required|array',
+            'photo' => 'nullable|string',
         ];
     }
 }
