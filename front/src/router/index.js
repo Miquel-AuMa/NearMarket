@@ -5,10 +5,22 @@ import { publicRoute } from './helpers'
 Vue.use(VueRouter)
 
 const routes = [
-  publicRoute({ path: '/', name: 'home' }, 'Home'),
-  publicRoute({ path: '/about', name: 'about' }, 'About'),
-  publicRoute({ path: '/shop', name: 'shop' }, 'Shop')
-]
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/About.vue')
+  },
+  {
+    path: '/shop',
+    name: 'shop',
+    component: () => import('../views/Shop.vue')
+  }
+].map(publicRoute)
 
 const router = new VueRouter({
   mode: 'history',

@@ -10,18 +10,12 @@ import isBefore from 'date-fns/isBefore'
  * @example routify(true)
  */
 function routify (requireAuth) {
-  return (route, component, meta = {}) => {
-    const pathToComponent = `../views/${component}.vue`
-
-    return {
-      ...route,
-      component: () => import(pathToComponent),
-      meta: {
-        ...meta,
-        requireAuth
-      }
+  return (route) => ({
+    ...route,
+    meta: {
+      requireAuth
     }
-  }
+  })
 }
 
 /**
