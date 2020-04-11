@@ -65,7 +65,7 @@ export default {
           password: this.ruleForm.pass
         }
 
-        const response = await this.$store('session/login', payload)
+        const response = await this.$store.dispatch('session/login', payload)
 
         if (!response.isOk) {
           console.log('error network', response)
