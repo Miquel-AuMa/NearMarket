@@ -1,4 +1,4 @@
-import { PlaceService, ProductService } from '../services/Crud'
+import { ShopService, ProductService } from '../services/Crud'
 
 export function blankSearchBar ({ commit }) {
   commit('setSearchBar', { text: '', type: 'places' })
@@ -8,47 +8,47 @@ export function setSearchBar ({ commit }, payload) {
   commit('setSearchBar', payload)
 }
 
-export async function fetchPlaces ({ commit }) {
-  const response = await PlaceService.fetch()
+export async function fetchShops ({ commit }) {
+  const response = await ShopService.fetch()
 
   if (response.isOk) {
-    commit('setPlaces', response.data)
+    commit('setShops', response.data)
   }
 
   return response
 }
-export async function getPlace ({ commit }, id) {
-  const response = await PlaceService.get({ id })
+export async function getShop ({ commit }, id) {
+  const response = await ShopService.get({ id })
 
   if (response.isOk) {
-    commit('setPlace', response.data)
+    commit('setShop', response.data)
   }
 
   return response
 }
-export async function storePlace ({ commit }, payload) {
-  const response = await PlaceService.create(payload)
+export async function storeShop ({ commit }, payload) {
+  const response = await ShopService.create(payload)
 
   if (response.isOk) {
-    commit('addPlace', response.data)
+    commit('addShop', response.data)
   }
 
   return response
 }
-export async function editPlace ({ commit }, payload) {
-  const response = await PlaceService.update(payload)
+export async function editShop ({ commit }, payload) {
+  const response = await ShopService.update(payload)
 
   if (response.isOk) {
-    commit('setPlace', response.data)
+    commit('setShop', response.data)
   }
 
   return response
 }
-export async function deletePlace ({ commit }, id) {
-  const response = await PlaceService.remove({ id })
+export async function deleteShop ({ commit }, id) {
+  const response = await ShopService.remove({ id })
 
   if (response.isOk) {
-    commit('deletePlace', response.data)
+    commit('deleteShop', response.data)
   }
 
   return response
