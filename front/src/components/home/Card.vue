@@ -1,25 +1,29 @@
 <template>
-  <router-link :to="{ name: this.link, params: {id: element.id} }" class="card-style">
-    <el-card :body-style="{ padding: '0px' }">
-      <img :src="element.image" class="image" />
+  <el-card :body-style="{ padding: '0px' }">
+    <img :src="element.image" class="image" />
 
-      <div class="p-md">
-        <span>{{ element.name }}</span>
-        <span>{{type}}</span>
-        <div class="bottom clearfix">
-          <address class="time">{{ element.address || '' }}</address>
+    <div class="p-md">
+      <span>{{ element.name }}</span>
+      <span>{{type}}</span>
+      <div class="bottom clearfix">
+        <address class="time">{{ element.address || '' }}</address>
 
-          <p class="description-card">{{ element.description || ' '}}</p>
+        <p class="description-card">{{ element.description || ' '}}</p>
 
-          <div class="separator"></div>
+        <div class="separator"></div>
 
-          <div class="p-sm">
-            <el-tag>{{ element.category.name }}</el-tag>
-          </div>
+        <div class="p-sm">
+          <el-tag>{{ element.category.name }}</el-tag>
+        </div>
+        <div v-if="type === 'products'">
+          <el-button type="primary" @click="addToCart">
+            <i class="el-icon-shopping-cart-1"></i>
+            Agregar al carrito
+          </el-button>
         </div>
       </div>
-    </el-card>
-  </router-link>
+    </div>
+  </el-card>
 </template>
 
 <script>
@@ -32,9 +36,9 @@ export default {
       type: String
     }
   },
-  computed: {
-    link () {
-      return this.type === 'places' ? 'shop' : 'product'
+  methods: {
+    addToCart () {
+      this.$store.dispatch('carts/addCartItem', { shop: this.element.shop, product: this.element, amount: 1 })
     }
   }
 }
@@ -45,10 +49,6 @@ export default {
     font-size: .9rem;
     color: #999;
     text-align: justify;
-  }
-
-  .card-style {
-    text-decoration: none;
   }
 
   .separator{
