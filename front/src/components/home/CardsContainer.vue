@@ -14,10 +14,19 @@ import Card from './Card'
 
 export default {
   name: 'CardsContainer',
-
+  props: {
+    default: {
+      type: String
+    }
+  },
   components: { Card },
 
-  computed: mapGetters('products', ['filteredElements', 'getSearchType'])
+  computed: {
+    getSearchType () {
+      return this.default ? this.default : this.getSearchType
+    },
+    ...mapGetters('products', ['filteredElements', 'getSearchType'])
+  }
 
 }
 </script>
