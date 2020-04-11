@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <SearchBar />
-    <CardsContainer />
+    <SearchBar :showButtons="showButtons" :default="type"/>
+    <CardsContainer :default="type"/>
   </div>
 </template>
 
@@ -15,6 +15,12 @@ export default {
   components: {
     CardsContainer,
     SearchBar
+  },
+  data () {
+    return {
+      showButtons: false,
+      type: 'places'
+    }
   }
 }
 </script>
