@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Shop;
 use App\ShopType;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Passport\PersonalAccessClient;
 use Tests\TestCase;
@@ -108,5 +109,26 @@ class UserControllerTest extends TestCase
             'city' => 'Madrid',
             'zip' => '28080',
         ]);
+    }
+
+    /** @test */
+    public function it_can_login_as_a_user()
+    {
+        factory(PersonalAccessClient::class)->create();
+
+        factory(User::class)->create([
+            'phone_number' => '555-555-555',
+            'password' => bcrypt('secret')
+        ]);
+
+        $this->post('/api/login', [
+            'phone_number' => '555-555-555',
+            'password' => 'secret',
+        ])->assertSuccessful();
+
+        $this->post('/api/login', [
+            'phone_number' => '555-555-555',
+            'password' => 'fake',
+        ])->assertStatus(401);
     }
 }
