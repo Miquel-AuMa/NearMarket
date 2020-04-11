@@ -12,4 +12,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd /root/NearMarket/back && bash deploy.sh
+          script: cd /home/deployer/NearMarket/back && bash deploy.sh
