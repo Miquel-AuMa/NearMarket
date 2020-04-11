@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 
-class ProductTest extends TestCase
+class ProductControllerTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class OrderItemTest extends TestCase
+class OrderItemControllerTest extends TestCase
 {
     use RefreshDatabase;
 

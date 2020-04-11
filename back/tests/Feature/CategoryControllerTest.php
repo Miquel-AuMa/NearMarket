@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 
-class CategoryTest extends TestCase
+class CategoryControllerTest extends TestCase
 {
     use RefreshDatabase;
 

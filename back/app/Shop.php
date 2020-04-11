@@ -28,6 +28,7 @@ class Shop extends Model
         $shop->zip = $data['zip'];
         $shop->delivery = $data['delivery'] ?? 0;
         $shop->schedule = $data['schedule'] ?? null;
+        $shop->photo = $data['photo'] ?? null;
 
         $shop->save();
 
@@ -49,6 +50,7 @@ class Shop extends Model
         $this->zip = $data['zip'] ?? $this->zip;
         $this->delivery = $data['delivery'] ?? $this->delivery;
         $this->schedule = $data['schedule'] ?? $this->schedule;
+        $this->photo = $data['photo'] ?? $this->photo;
 
         $this->save();
 
