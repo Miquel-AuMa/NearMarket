@@ -1,4 +1,4 @@
-name: remote ssh command
+name: backend
 on: [push, pull_request]
 jobs:
 
@@ -13,4 +13,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: pwd
+          script: cd /root/Nearmarket/ && git pull origin master
