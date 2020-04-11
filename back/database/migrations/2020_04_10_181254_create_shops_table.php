@@ -19,7 +19,6 @@ class CreateShopsTable extends Migration
             $table->foreignId('shop_type_id')->constrained();
             $table->string('phone_number')->unique();
             $table->string('name');
-            $table->string('password');
             $table->string('address_line_1');
             $table->string('city');
             $table->string('zip');

@@ -37,8 +37,6 @@ class ShopControllerTest extends TestCase
                 'shop_type_id' => factory(ShopType::class)->create()->id,
                 'phone_number' => '555-555-555',
                 'name' => 'A name shop',
-                'password' => 'secret',
-                'password_confirmation' => 'secret',
                 'address_line_1' => '13 Rue del Percebe',
                 'city' => 'Madrid',
                 'zip' => '28080',
@@ -94,7 +92,6 @@ class ShopControllerTest extends TestCase
         $user = factory(User::class)->create();
 
         $shop = factory(Shop::class)->create();
-        $shopPassword = $shop->password;
 
         $response = $this->actingAs($user, 'api')
             ->put('/api/shops/' . $shop->id, [
@@ -125,7 +122,6 @@ class ShopControllerTest extends TestCase
                 'close' => '21:00'
             ]
         ], $shop->fresh()->schedule);
-        $this->assertEquals($shopPassword, $shop->fresh()->password);
     }
 
     /** @test */
