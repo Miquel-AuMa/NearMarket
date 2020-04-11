@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import trade from './Trade'
-import user from './User'
+import trade from '../../shop/FormShop'
+import user from '../../user/FormUser'
 
 export default {
   name: 'register',
