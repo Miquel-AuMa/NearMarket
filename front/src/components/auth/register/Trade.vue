@@ -177,15 +177,4 @@ export default {
   width: 100%;
 }
 </style>
-/**
-Tipo Tienda - fk
-Teléfono - string (unique)
-Password - argon2
-Dirección
-Linea 1 - string
-Localidad - string
-Código postal - string (numeric)
-Reparto - bool
-Foto - url - string
-Horario [ { apertura: 08:00, cierra: 15:00 }, { apertura: 16:00, cierra: 20:00 } ]
-*/
+
