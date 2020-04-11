@@ -3,45 +3,45 @@ export function setSearchBar (state, { text, type }) {
   state.searchType = type
 }
 
-export function setPlaces (state, places) {
-  state.places = places
+export function setShops (state, shops) {
+  state.shops = shops
 }
 
-export function setPlace (state, place) {
-  const index = state.places.findIndex(x => x.id === place.id)
+export function setShop (state, shop) {
+  const index = state.shops.findIndex(x => x.id === shop.id)
 
   if (index !== -1) {
-    state.places = [
-      ...state.places.slice(0, index),
-      place,
-      ...state.places.slice(index + 1)
+    state.shops = [
+      ...state.shops.slice(0, index),
+      shop,
+      ...state.shops.slice(index + 1)
     ]
   } else {
-    state.places = [
-      ...state.places,
-      place
+    state.shops = [
+      ...state.shops,
+      shop
     ]
   }
 }
 
-export function addPlace (state, place) {
-  const index = state.places.findIndex(x => x.id === place.id)
+export function addShop (state, shop) {
+  const index = state.shops.findIndex(x => x.id === shop.id)
 
   if (index !== -1) {
-    state.places = [
-      ...state.places,
-      place
+    state.shops = [
+      ...state.shops,
+      shop
     ]
   }
 }
 
-export function deletePlace (state, place) {
-  const index = state.places.findIndex(x => x.id === place.id)
+export function deleteShop (state, shop) {
+  const index = state.shops.findIndex(x => x.id === shop.id)
 
   if (index !== -1) {
-    state.places = [
-      ...state.places.slice(0, index),
-      ...state.places.slice(index + 1)
+    state.shops = [
+      ...state.shops.slice(0, index),
+      ...state.shops.slice(index + 1)
     ]
   }
 }
