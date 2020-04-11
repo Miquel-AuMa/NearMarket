@@ -1,10 +1,24 @@
 <template>
   <div class="navbar">
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="home"><img src="/near-market.svg" width="50" height="50"></el-menu-item>
-      <el-menu-item index="cart" class="right-float" v-if="$route.name === 'shop'"><span class="el-icon-shopping-cart-2"></span>({{findCart.cartItems.length}})</el-menu-item>
-      <el-menu-item index="login" class="right-float">Entrar</el-menu-item>
-      <el-menu-item index="register" class="right-float">Registro</el-menu-item>
+      <el-menu-item index="home">
+        <img src="/near-market.svg" width="50" height="50">
+      </el-menu-item>
+
+      <el-menu-item index="cart" class="right-float" v-if="$route.name === 'shop'">
+        <span class="el-icon-shopping-cart-2"></span>
+        <template v-if="cartSize">
+          ({{ cartSize }})
+        </template>
+      </el-menu-item>
+
+      <el-menu-item index="login" class="right-float">
+        Entrar
+      </el-menu-item>
+
+      <el-menu-item index="register" class="right-float">
+        Registro
+      </el-menu-item>
     </el-menu>
     <div class="line"></div>
   </div>
@@ -15,19 +29,25 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'NavBar',
+
   data () {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex: '1'
     }
   },
   computed: {
     ...mapGetters('carts', ['getCarts']),
+
     findCart () {
       const id = parseInt(this.$route.params.id)
       return this.getCarts.find(cart => cart.shopId === id)
+    },
+
+    cartSize () {
+      return this?.findCart?.cartItems?.length ?? 0
     }
   },
+
   methods: {
     handleSelect (key) {
       if (key === 'cart') {
@@ -39,6 +59,7 @@ export default {
   }
 }
 </script>
+
 <style>
   .navbar{
     position: sticky;
