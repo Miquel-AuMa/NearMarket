@@ -1,4 +1,4 @@
-export const HOST = process.env.HOST || 'http://nearmarket.programaresunamierda.com/'
+export const HOST = process.env.HOST || 'http://nearmarket.programaresunamierda.com'
 export const URL = HOST + '/api'
 
 export const LOGIN = HOST + '/oauth/token'
