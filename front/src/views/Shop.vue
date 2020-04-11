@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <SearchBar />
+    <SearchBar :showButtons="showButtons" :default="type"/>
     <ShopInfo/>
-    <CardsContainer :default="'products'"/>
+    <CardsContainer :default="type"/>
   </div>
 </template>
 
@@ -18,6 +18,12 @@ export default {
     id: {
       type: String,
       required: true
+    }
+  },
+  data () {
+    return {
+      showButtons: false,
+      type: 'products'
     }
   },
   components: {
