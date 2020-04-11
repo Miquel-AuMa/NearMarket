@@ -10,6 +10,8 @@
 
 <script>
 import CardProduct from './CardProduct'
+// import { mapGetters } from 'vuex'
+
 export default {
   components: {
     CardProduct
