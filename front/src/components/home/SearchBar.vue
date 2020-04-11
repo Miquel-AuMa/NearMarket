@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       searchText: '',
-      searchType: '',
+      searchType: 'places',
       searchTimeout: {}
     }
   },

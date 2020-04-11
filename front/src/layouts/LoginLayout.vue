@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <nav-bar />
+      <NavBar />
     </el-header>
 
     <el-main>
@@ -15,7 +15,8 @@
 import NavBar from '@/components/generic/NavBar.vue'
 
 export default {
-  name: 'MainLayout',
+  name: 'LoginLayout',
 
   components: { NavBar }
 }
+</script>

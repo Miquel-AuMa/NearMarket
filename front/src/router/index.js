@@ -20,7 +20,8 @@ const routes = [
         component: () => import('../views/About.vue')
       },
       {
-        path: '/shop',
+        path: '/shop/:id',
+        parameters: true,
         name: 'shop',
         component: () => import('../views/Shop.vue')
       }
@@ -32,7 +33,7 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'Login',
+        name: 'login',
         component: () => ('../views/login/Login.vue')
       }
     ].map(publicRoute)

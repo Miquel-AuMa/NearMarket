@@ -1,7 +1,7 @@
 import { PlaceService, ProductService } from '../services/Crud'
 
 export function blankSearchBar ({ commit }) {
-  commit('setSearchBar', { text: '', type: '' })
+  commit('setSearchBar', { text: '', type: 'places' })
 }
 
 export function setSearchBar ({ commit }, payload) {

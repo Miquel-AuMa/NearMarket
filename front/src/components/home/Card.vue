@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: this.link }" class="card-style">
+  <router-link :to="{ name: this.link, params: {id: element.id} }" class="card-style">
     <el-card :body-style="{ padding: '0px' }">
       <img :src="element.image" class="image" />
 
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     link () {
-      return this.searchType === 'shops' ? 'shop' : 'product'
+      return this.type === 'places' ? 'shop' : 'product'
     }
   }
 }
