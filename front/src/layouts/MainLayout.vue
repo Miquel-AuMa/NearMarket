@@ -6,7 +6,6 @@
 
     <el-main>
       <router-view />
-        <!-- <home /> -->
     </el-main>
   </el-container>
 </template>
