@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class OrderTest extends TestCase
+class OrderControllerTest extends TestCase
 {
     use RefreshDatabase;
 
