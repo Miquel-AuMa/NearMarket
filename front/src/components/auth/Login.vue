@@ -5,7 +5,7 @@
         <el-input type="text" v-model="ruleForm.name" auto-complete="off" />
       </el-form-item>
       <el-form-item label="Contraseña" prop="pass">
-        <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+        <el-input type="password" v-model="ruleForm.pass" autocomplete="off" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">Enviar</el-button>
@@ -18,6 +18,7 @@
 <script>
 export default {
   name: 'Login',
+
   data () {
     const validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -26,6 +27,7 @@ export default {
         callback()
       }
     }
+
     const validateName = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('Please input the name'))
@@ -33,6 +35,7 @@ export default {
         callback()
       }
     }
+
     return {
       ruleForm: {
         pass: '',
@@ -48,24 +51,34 @@ export default {
       }
     }
   },
+
   methods: {
     submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
+      this.$refs[formName].validate(async (valid) => {
+        if (!valid) {
           console.log('error submit!!')
           return false
         }
+
+        const payload = {
+          username: this.ruleForm.name,
+          password: this.ruleForm.pass
+        }
+
+        const response = await this.$store('session/login', payload)
+
+        if (!response.isOk) {
+          console.log('error network', response)
+          return false
+        }
+
+        this.$router.push({ name: 'Home' })
       })
     },
+
     resetForm (formName) {
       this.$refs[formName].resetFields()
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
