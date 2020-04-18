@@ -38,12 +38,14 @@ export default {
 
     findCart () {
       const id = parseInt(this.$route.params.id)
+
       return this.getCarts.find(cart => cart.shopId === id)
     },
 
     cartSize () {
       const size = this?.findCart?.cartItems?.length ?? 0
-      return size
+
+      return size === 0
         ? ''
         : `(${size})`
     }
