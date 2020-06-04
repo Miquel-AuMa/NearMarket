@@ -7,9 +7,7 @@
 
       <el-menu-item index="cart" class="right-float" v-if="$route.name === 'shop'">
         <span class="el-icon-shopping-cart-2"></span>
-        <template v-if="cartSize">
-          ({{ cartSize }})
-        </template>
+        {{ cartSize }}
       </el-menu-item>
 
       <el-menu-item index="login" class="right-float">
@@ -40,11 +38,16 @@ export default {
 
     findCart () {
       const id = parseInt(this.$route.params.id)
+
       return this.getCarts.find(cart => cart.shopId === id)
     },
 
     cartSize () {
-      return this?.findCart?.cartItems?.length ?? 0
+      const size = this?.findCart?.cartItems?.length ?? 0
+
+      return size === 0
+        ? ''
+        : `(${size})`
     }
   },
 
